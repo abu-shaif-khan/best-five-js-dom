@@ -1,3 +1,7 @@
+body{
+    background-color: #151515;
+}
+
 .banner-image{
     background-image: url("../images/banner.png");
     background-size: cover;
@@ -12,4 +16,16 @@
 .banner-para{
     font-size: 30px;
     padding-top: 20px;
+}
+.section-panel{
+    background-color: #0D0D0D;
+    text-align: left;
+    padding: 10px;
+}
+.calculation-panel{
+    background-color: #0D0D0D;
+    padding: 20px;
+}
+.total-color{
+    color: #FF5E19;
 }
