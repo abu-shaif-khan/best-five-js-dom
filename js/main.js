@@ -4,16 +4,9 @@ function playerListFunction(playerName, playerId){
     let playerListItem = document.createElement('li');
     playerListItem.innerText = playerName;
     playerList.appendChild(playerListItem);
-    document.querySelector(playerId).disabled = true;
-    let count = 1;
-
-    return count;
-
+    document.querySelector(playerId).disabled = true;  
 }
 
-function countFivePlayers(){
-
-}
 
 document.getElementById('player1').addEventListener('click', function(){
     playerListFunction('Lionel Messi', '#player1');
@@ -41,4 +34,26 @@ document.getElementById('player8').addEventListener('click', function(){
 })
 document.getElementById('player9').addEventListener('click', function(){
     playerListFunction('Erling Haaland', '#player9');
+})
+
+document.getElementById('CalculateBtn').addEventListener('click', function(){
+    let perPlayerField = document.getElementById('perPlayer');
+    let perPlayer = perPlayerField.value * 5;
+    let playerExpenseField = document.getElementById('playerExpenses');
+    playerExpenseField.innerText = perPlayer;
+})
+
+document.getElementById('calculateTotalBtn').addEventListener('click', function(){
+    let playerExpenseField = document.getElementById('playerExpenses');
+    let playerExpense = parseInt(playerExpenseField.innerText);
+    
+    let managerCostField = document.getElementById('managerCost');
+    let managerCost = parseInt(managerCostField.value);
+
+    let coachCostField = document.getElementById('coachCost');
+    let coachCost = parseInt(coachCostField.value);
+    
+    let totalCost = playerExpense + managerCost+ coachCost;
+    let calculateTotalField = document.getElementById('calculateTotalExpenses');
+    calculateTotalField.innerText = totalCost;
 })
