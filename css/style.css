@@ -1,0 +1,15 @@
+.banner-image{
+    background-image: url("../images/banner.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 481px;
+}
+.banner-header{
+    color: #FF5E19;
+    font-size: 70px;
+    padding-top: 100px;
+}
+.banner-para{
+    font-size: 30px;
+    padding-top: 20px;
+}
