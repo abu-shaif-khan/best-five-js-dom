@@ -1,10 +1,19 @@
 // player selected function
 function playerListFunction(playerName, playerId){
+    let listItem = document.getElementsByClassName('player-individual-list');
+    let totalListItem = listItem.length;
+    if(totalListItem === 5){
+        alert('Can not select more then 5 Players');
+
+        return;
+    }
     let playerList = document.getElementById('playerSelectedList');
     let playerListItem = document.createElement('li');
+    playerListItem.classList.add("player-individual-list");
     playerListItem.innerText = playerName;
     playerList.appendChild(playerListItem);
-    document.querySelector(playerId).disabled = true;  
+    document.querySelector(playerId).disabled = true; 
+    document.querySelector(playerId).classList.add("btn-light"); 
 }
 
 
@@ -38,6 +47,12 @@ document.getElementById('player9').addEventListener('click', function(){
 
 document.getElementById('CalculateBtn').addEventListener('click', function(){
     let perPlayerField = document.getElementById('perPlayer');
+    if (isNaN(perPlayerField.value) || perPlayerField.value === ''){
+        alert('Please put the number');
+        perPlayerField.value = '';
+
+        return;
+    }
     let perPlayer = perPlayerField.value * 5;
     let playerExpenseField = document.getElementById('playerExpenses');
     playerExpenseField.innerText = perPlayer;
@@ -49,10 +64,17 @@ document.getElementById('calculateTotalBtn').addEventListener('click', function(
     
     let managerCostField = document.getElementById('managerCost');
     let managerCost = parseInt(managerCostField.value);
-
+    
     let coachCostField = document.getElementById('coachCost');
     let coachCost = parseInt(coachCostField.value);
     
+    if ((isNaN(managerCostField.value) || managerCostField.value === '') || (isNaN(coachCostField.value) || coachCostField.value === '')){
+        alert('Please put the numbers');
+        managerCostField.value = '';
+        coachCostField.value = '';
+
+        return;
+    }
     let totalCost = playerExpense + managerCost+ coachCost;
     let calculateTotalField = document.getElementById('calculateTotalExpenses');
     calculateTotalField.innerText = totalCost;
